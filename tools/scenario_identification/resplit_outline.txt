@@ -1,0 +1,23 @@
+# Preprocessing:
+  1. Copy scenarios according to the frenetp_clustering labels, and [0-6] 80%, [0-6] 20%, [7-9] 100% train/val/test splits
+  2. Re-create cartesian endpoint clusters, using the frenet split; intention points
+  3. Create new mtr training configs utilizing these files
+  4. For intention_points, compute them in sd space (2d)
+
+# Updating MTR
+  1. Add flag to config to convert to Frenet when possible, along with the cached lane information (in frenet folder)
+  2. Walk-through waymo_dataset.py; make sure each function makes "sense" with the flag, i.e. transform to frenet + Z accordingly
+  3. If appropriate, potentially cache the frenet-centric stuff for each agent to predict, as new fields in the scenario files
+  4. Walk through the rest of MTR framework, making sure things are correct; loss should be in frenet, but eval should be in cartesian
+  5. Think about how each things such as agent heading will work -> just get rid of all the rotation stuff
+
+# Looking for uses of waymo_dataset functions externally:
+- `generate_prediction_dicts`, used in eval_utils::eval_one_epoch
+- `evaluation`, used in eval_utils::eval_one_epoch
+
+# Looking for uses of intention points
+- mtr_decoder::build_motion_query
+
+
+# As a baseline, also consider incorporating Frenet coordinates in *addition* to xyz?
+# Also, consider whether to use the Frenet+ paper's definition of lanes or our own

@@ -1,0 +1,4 @@
+[submodule "pyhsmm"]
+	path = pyhsmm
+	url = git@github.com:cmubig/pyhsmm-fork.git
+	ignore = dirty
