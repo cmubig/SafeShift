@@ -5,3 +5,10 @@ easydict
 pyyaml
 scikit-image
 tqdm
+protobuf==3.20.*
+natsort
+timm
+joblib
+scikit-learn
+dtw
+shapely

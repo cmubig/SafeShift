@@ -1,0 +1,74 @@
+DATA_CONFIG:
+    DATASET: MetaDataset
+    DATASET_PATH: 'data/meta_labels'
+    MODELS: [
+        {
+            'ckpt': 'output/new_waymo/mtr+20p_a/default/ckpt/best_model.pth',
+            'val_results': 'output/new_waymo/mtr+20p_a_test/default/eval/epoch_best/default/result_val.pkl',
+            'train_results': 'output/new_waymo/mtr+20p_a_test/default/eval/epoch_best/default/result_train.pkl',
+            'test_results': 'output/new_waymo/mtr+20p_a_test/default/eval/epoch_best/default/result.pkl'
+        },
+        {
+            'ckpt': 'output/new_waymo/mtr+20p_b/default/ckpt/best_model.pth',
+            'val_results': 'output/new_waymo/mtr+20p_b_test/default/eval/epoch_best/default/result_val.pkl',
+            'train_results': 'output/new_waymo/mtr+20p_b_test/default/eval/epoch_best/default/result_train.pkl',
+            'test_results': 'output/new_waymo/mtr+20p_b_test/default/eval/epoch_best/default/result.pkl'
+        },
+        {
+            'ckpt': 'output/new_waymo/mtr+20p_c/default/ckpt/best_model.pth',
+            'val_results': 'output/new_waymo/mtr+20p_c_test/default/eval/epoch_best/default/result_val.pkl',
+            'train_results': 'output/new_waymo/mtr+20p_c_test/default/eval/epoch_best/default/result_train.pkl',
+            'test_results': 'output/new_waymo/mtr+20p_c_test/default/eval/epoch_best/default/result.pkl'
+        },
+        {
+            'ckpt': 'output/new_waymo/mtr+20p_d/default/ckpt/best_model.pth',
+            'val_results': 'output/new_waymo/mtr+20p_d_test/default/eval/epoch_best/default/result_val.pkl',
+            'train_results': 'output/new_waymo/mtr+20p_d_test/default/eval/epoch_best/default/result_train.pkl',
+            'test_results': 'output/new_waymo/mtr+20p_d_test/default/eval/epoch_best/default/result.pkl'
+        },
+        {
+            'ckpt': 'output/new_waymo/mtr+20p_e/default/ckpt/best_model.pth',
+            'val_results': 'output/new_waymo/mtr+20p_e_test/default/eval/epoch_best/default/result_val.pkl',
+            'train_results': 'output/new_waymo/mtr+20p_e_test/default/eval/epoch_best/default/result_train.pkl',
+            'test_results': 'output/new_waymo/mtr+20p_e_test/default/eval/epoch_best/default/result.pkl'
+        }
+    ]
+MODEL:
+    BASE: {
+            "dim": 2,
+            "feat_enc_x": {
+                "in_size": 2,
+                "hidden_size": 96,
+                "n_layers": 3,
+                "out_size": 96,
+                "gru": true
+            },
+            "feat_enc_model_fut": {
+                "in_size": 96,
+                "hidden_size": [64],
+                "out_size": 16,
+                "layer_norm": true,
+                "dropout": 0.5
+            },
+            "decoder": {
+                "in_size": 176,
+                "hidden_size": [92, 64],
+                "out_size": 5,
+                "layer_norm": true,
+                "dropout": 0.5
+            }
+        }
+    LOSS: "mse"
+OPTIMIZATION:
+    BATCH_SIZE_PER_GPU: 64
+    NUM_EPOCHS: 100
+
+    OPTIMIZER: AdamW
+    LR: 0.001
+    WEIGHT_DECAY: 0.01
+
+    SCHEDULER: lambdaLR
+    DECAY_STEP_LIST: []
+    LR_DECAY: 0.5
+    LR_CLIP: 0.000001
+    GRAD_NORM_CLIP: 1000.0

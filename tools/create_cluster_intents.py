@@ -22,7 +22,7 @@ import numpy as np
 import itertools
 
 
-base = os.path.expanduser('/av_shared_ssd/mtr_process_ssd')
+base = os.path.expanduser('~/waymo/mtr_process')
 
 # Uses the "new" splits, from resplit.py; this way, test is labeled as well
 train_base = f'{base}/joint_original'

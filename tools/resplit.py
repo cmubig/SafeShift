@@ -9,7 +9,7 @@ from natsort import natsorted
 from operator import itemgetter
 
 
-base = os.path.expanduser('~/monet_shared/shared/mtr_process')
+base = os.path.expanduser('~/waymo/mtr_process')
 train_base = f'{base}/processed_scenarios_training'
 val_base = f'{base}/processed_scenarios_validation'
 train_meta = f'{base}/processed_scenarios_training_infos.pkl'

@@ -269,7 +269,7 @@ def create_infos_from_protos(raw_data_path, output_path, num_workers=8):
     
 
 if __name__ == '__main__':
-    # Defaults: python data_preprocess.py ~/monet_shared/datasets/waymo/scenario/ ~/monet_shared/shared/mtr_process
+    # Defaults: python data_preprocess.py ~/waymo/scenario/ ~/waymo/mtr_process
     import tensorflow.compat.v1 as tf1
     tf1.logging.set_verbosity(tf1.logging.ERROR)
     create_infos_from_protos(
