@@ -5,16 +5,18 @@ DATA_CONFIG:
     DATA_ROOT: '../../monet_shared/shared/mtr_process'
     SPLIT_DIR: {
         'train': 'new_processed_scenarios_training', 
-        'test': 'new_processed_scenarios_validation'
+        'val': 'new_processed_scenarios_validation',
+        'test': 'new_processed_scenarios_testing'
     }
 
     INFO_FILE: {
         'train': 'new_processed_scenarios_training_infos.pkl', 
-        'test': 'new_processed_scenarios_val_infos.pkl'
+        'val': 'new_processed_scenarios_val_infos.pkl',
+        'test': 'new_processed_scenarios_test_infos.pkl'
     }
 
     SAMPLE_INTERVAL: {
-        'train': 5, 
+        'train': 1, 
         'test': 1
     }
 
@@ -63,7 +65,7 @@ MODEL:
         INTENTION_POINTS_FILE: data/waymo/new_cluster_64_center_dict.pkl
 
         D_MODEL: 256
-        NUM_DECODER_LAYERS: 5 
+        NUM_DECODER_LAYERS: 6 
         NUM_ATTN_HEAD: 4
         MAP_D_MODEL: 128
         DROPOUT_OF_ATTN: 0.1 

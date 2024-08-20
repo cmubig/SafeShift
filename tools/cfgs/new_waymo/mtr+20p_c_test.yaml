@@ -62,7 +62,7 @@ MODEL:
         NUM_FUTURE_FRAMES: 80
         NUM_MOTION_MODES: 6
 
-        INTENTION_POINTS_FILE: data/waymo/cluster_64_center_dict.pkl
+        INTENTION_POINTS_FILE: data/waymo/new_cluster_64_center_dict.pkl
 
         D_MODEL: 192
         NUM_DECODER_LAYERS: 6 
